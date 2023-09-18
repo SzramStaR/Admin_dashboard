@@ -1,6 +1,6 @@
- *{
+ /* *{
     border: 1px solid rgb(115, 115, 221);
- } 
+ }  */
 
 :root{
     font-size: calc(0.625rem + 0.4vw);
@@ -15,10 +15,38 @@ body{
     grid-template: auto 4fr/ 1fr 4fr ;
 }
 
+::-webkit-scrollbar {
+    width: 10px; 
+    background-color: rgb(111, 111, 111);   
+}
+
 /* Navbar */
-nav{
+nav {
     grid-area: 1/1/-1/1;
     background-color: rgb(170, 38, 170);
+    padding: 15px;
+    display: flex; /* Make the nav a flex container */
+    flex-direction: column; /* Stack the child elements vertically */
+    align-items:center; /* Center the content horizontally */
+    justify-content: flex-start; /* Align content to the top vertically */
+}
+
+nav h1 {
+    font-size: 2rem;
+    margin-bottom: 20px; /* Add some spacing between h1 and ul */
+    text-align: center; /* Center the text horizontally */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Stack the list items vertically */
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+nav ul li:hover {
+    cursor: pointer;
 }
 
 /* Header */
@@ -28,27 +56,75 @@ header{
     grid-template-columns: 2fr 1fr;
     gap: 10px;
     background-color:  rgb(46, 46, 46);
+    padding: 15px;
 }
 .search_container{
     grid-area: 1/1/1/1;
+    display: flex;
 }
 .welcome_container{
     grid-area:2/1/2/1;
+    display: grid;
+    grid-template-columns: auto 1fr; /* Adjust the columns as needed */
+    grid-template-rows: repeat(2,1fr);
+    align-items: center; /* Vertically center the content */
+    column-gap: 20px;
+}
+.welcome_container img{
+    border-radius: 50%;
+    /* width: auto;
+    height: auto; */
+    max-width: 100px;
+    max-height: 150px;
+    grid-area: 1/1/-1/1;
+
+}
+.welcome_container p{
+    margin: 0;
 }
 .buttons_container{
     grid-area: 2/2/2/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.profile_container{
+    display: flex;
+}
+.search_container,.welcome_container,.buttons_container{
+    padding: 15px;
+}
+header p{
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 button{
     background-color:rgb(170, 38, 170);
     color: white;
+    border-radius: 20px;
+    border: none;
+    width: 6rem;
+    height: 2rem;
+    font-weight: bold;
+    font-size: 1rem;
 }
 input{
     background-color:  rgb(72, 72, 72);
+    border-radius: 20px;
+    width: 100%;
+    height: 1.5rem;
+    border: none;
 }
 
 
 /* Main */
+h4{
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
 
 main{
     background-color: rgb(72, 72, 72);
@@ -56,20 +132,23 @@ main{
     grid-template-columns: 80% 20%;
     grid-template-rows: repeat(2,1fr);
     gap: 10px;
-    padding: 8px;
+    padding: 15px;
 }
 
 .projects_content{
     grid-area: 1/1/3/1;
     display:grid;
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: auto repeat(3,1fr);
-    gap: 10px;
+    grid-template-rows: 4.9% repeat(3,1fr);
+    row-gap: 20px;
+    column-gap: 15px;
 
 }
 
 .project_card,.announcement,.trend{
-    background-color:rgb(46, 46, 46);;
+    background-color:rgb(46, 46, 46);
+    border-radius: 15px;
+    padding: 15px;
 }
 #project_heading{
     grid-area: 1/1/2/-1;
@@ -78,14 +157,13 @@ main{
 .announc_content{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 10px;
+    grid-template-rows: 10% auto;
+    gap: 20px;
 }
 
 .trending_content{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 10px;
-    margin: 10px;
+    grid-template-rows: 10% auto;
+    gap: 20px;
 }
